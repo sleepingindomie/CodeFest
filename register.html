@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pendaftaran | CodeFest 2023</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="assets/css/theme.css" rel="stylesheet" />
+    
+    <style>
+        main#top {
+            margin-top: 0;
+            padding-top: 0;
+        }
+      
+        .signup-content {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+      
+        .signin-content {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
+    
+</head>
+<body>
+    <main class="main" id="top">
+        <nav
+          class="navbar navbar-expand-lg navbar-light sticky-top"
+          data-navbar-on-scroll="data-navbar-on-scroll"
+        >
+          <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <img src="../CodeFest/images/codefest.jpg" height="75" alt="" />
+            </a>
+  
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div
+              class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0"
+              id="navbarSupportedContent"
+            >
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html#feature">Bootcamp</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html#marketing">Competition</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html#validation">Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="voting.php">Voting</a>
+                </li>
+              </ul>
+              
+              <div class="d-flex ms-lg-4">
+                <a class="btn btn-secondary-outline" href="login.php">Log In</a
+                ><a class="btn btn-warning ms-3" href="register.html">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+    <div class="main">
+        
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Pendaftaran  CodeFest 2023</h2>
+                        <form method="POST" class="register-form" id="register-form" action="proses_daftar.php">
+                            <div class="form-group">
+                                <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="username" placeholder="Username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Ketik Ulang Password" required>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Daftar"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sign up image"></figure>
+                        <p class="loginhere">
+                            Sudah punya akun? <a href="login.php" class="loginhere-link">Login disini</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

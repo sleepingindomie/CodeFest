@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Codefest</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/img/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/img/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/img/favicons/favicon-16x16.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicons/favicon.png"
+    />
+    <link rel="manifest" href="assets/img/favicons/manifest.json" />
+    <meta
+      name="msapplication-TileImage"
+      content="assets/img/favicons/mstile-150x150.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+
+    
+  </head>
+
+  <body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+            <a class="navbar-brand" href="halamanutama.php">
+                <img src="../CodeFest/images/codefest.jpg" height="75" alt="" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="absensi.php">Absensi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="lihattugas.php">Tugas Saya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="vote.php">Vote</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="lihatbeli.php">Lihat pembelian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="beli.php">Beli</a>
+                    </li>
+                </ul>
+                <?php
+                session_start();
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '<div class="d-flex align-items-center ms-lg-4">';
+                    echo '<div class="vertical-line"></div>'; // Garis Pembatas
+                    echo '</div>';
+                }
+                ?>
+                <ul class="navbar-nav ml-auto">
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php echo $username; ?>
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</main>
+
+
+      <section class="pt-7">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-md-start text-center py-6">
+            <h1 class="mb-4 fs-9 fw-bold">
+              <?php echo "Selamat Datang, $username!"; ?>
+            </h1>
+
+              <p class="mb-6 lead text-secondary">
+                Helping educational institutions and corporates
+                <br class="d-none d-xl-block" />find and adopt technology
+                innovations.<br class="d-none d-xl-block" />
+              </p>
+              
+            </div>
+            <div class="col-md-6 text-end">
+              <img
+                class="pt-7 pt-md-0 img-fluid"
+                src="assets/img/hero/homee.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================-->
+      <!-- <section> Bootcamp ============================-->
+      <section class="pt-5 pt-md-9 mb-6" id="feature">
+        <div
+          class="bg-holder z-index--1 bottom-0 d-none d-lg-block"
+          style="
+            background-image: url(assets/img/category/shape.png);
+            opacity: 0.5;
+          "
+        ></div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <h1 class="fs-9 fw-bold mb-4 text-center">
+            Join our Bootcamp <br class="d-none d-xl-block" />
+            Start with us!
+          </h1>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-2">
+              <img
+                class="mb-3 ms-n3"
+                src="assets/img/category/ux.png"
+                width="75"
+                alt="Feature"
+              />
+              <h4 class="mb-3">UI UX </h4>
+              <p class="mb-0 fw-medium text-secondary">
+                Designing User Interface and User Experience is as easy as flipping your hand.
+              </p>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2">
+              <img
+                class="mb-3 ms-n3"
+                src="assets/img/category/design.png"
+                width="75"
+                alt="Feature"
+              />
+              <h4 class="mb-3">Graphic Design</h4>
+              <p class="mb-0 fw-medium text-secondary">
+                The Ultimate Graphic Design Course Which Covers Photoshop, Illustrator, InDesign,Design Theory, Branding and Logo Design
+              </p>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2">
+              <img
+                class="mb-3 ms-n3"
+                src="assets/img/category/data.png"
+                width="75"
+                alt="Feature"
+              />
+              <h4 class="mb-3">Data Sciene</h4>
+              <p class="mb-0 fw-medium text-secondary">
+                Complete Data Science Training: Mathematics, Statistics, Python, Advanced Statistics in Python, Machine & Deep Learning
+              </p>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2">
+              <img
+                class="mb-3 ms-n3"
+                src="assets/img/category/ai.png"
+                width="75"
+                alt="Feature"
+              />
+              <h4 class="mb-3">Artificial Intelligent</h4>
+              <p class="mb-0 fw-medium text-secondary">
+                Machine Learning & Neural Networks for Computer Vision, Time Series Analysis, NLP, GANs, Reinforcement Learning
+              </p>
+            </div>
+          </div>
+          <br>
+          <div class="text-center">
+            <a class="btn btn-warning" href="kumpultugas.php" role="button">Kumpulkan Tugas</a>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+            <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="pt-5" id="marketing">
+          <div class="container">
+            <h1 class="fw-bold fs-6 mb-3">Codefest 2023</h1>
+            <p class="mb-6 text-secondary">
+              Join the competition and compete with other participants. Win prizes worth tens of millions of rupiah.
+            </p>
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="assets/img/marketing/robot.jpg"
+                    alt=""
+                  />
+                  <div class="card-body ps-0">
+                    <p class="text-secondary">
+                      By
+                      <a class="fw-bold text-decoration-none me-1" href="#"
+                        >Abdullah</a
+                      >|<span class="ms-1">03 March 2019</span>
+                    </p>
+                    <h3 class="fw-bold">
+                      Robotics
+                    </h3>
+                    <a class="btn btn-primary" href="robotics.php" id="read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="assets/img/marketing/ML.jpg"
+                    alt=""
+                  />
+                  <div class="card-body ps-0">
+                    <p class="text-secondary">
+                      By
+                      <a class="fw-bold text-decoration-none me-1" href="#"
+                        >Abdullah</a
+                      >|<span class="ms-1">03 March 2019</span>
+                    </p>
+                    <h3 class="fw-bold">
+                      Machine Learning and Data Science
+                    </h3>
+                    <a class="btn btn-primary" href="machine.php" id="read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="assets/img/marketing/bisnis.jpg"
+                    alt=""
+                  />
+                  <div class="card-body ps-0">
+                    <p class="text-secondary">
+                      By
+                      <a class="fw-bold text-decoration-none me-1" href="#"
+                        >Abdullah</a
+                      >|<span class="ms-1">03 March 2019</span>
+                    </p>
+                    <h3 class="fw-bold">
+                      Bussiness IT Case
+                    </h3>
+                    <a class="btn btn-primary" href="business.php" id="read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of .container-->
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+  
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-5" id="validation">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h5 class="text-secondary">For further information</h5>
+              <h2 class="mb-2 fs-7 fw-bold">
+                Information about Codefest</h2>
+              <p class="mb-4 fw-medium text-secondary">
+                Welcome to Codefest! Codefest is a technology and information development competition that challenges participants to showcase their skills in programming and creativity. Compete with other participants and get a chance to win exciting prizes worth millions of rupiah.
+              </p>
+              <h4 class="fs-1 fw-bold">Bootcamp</h4>
+              <p class="mb-4 fw-medium text-secondary">
+                We provide a variety of bootcamps that can be attended both on a paid and free basis for training and skill development in the IT field.
+              </p>
+              <h4 class="fs-1 fw-bold">Competition</h4>
+              <p class="mb-4 fw-medium text-secondary">
+                For IT enthusiasts who love competitions like UI/UX competitions, robotics competitions, business IT case competitions, register yourself here now!
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <img
+                class="img-fluid"
+                src="assets/img/validation/validation.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pt-5" id="manager">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <img
+                class="img-fluid"
+                src="assets/img/manager/manager.png"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-6">
+              <h5 class="text-secondary">For further information</h5>
+              <p class="fs-7 fw-bold mb-2">Benefits</p>
+              <p class="mb-4 fw-medium text-secondary">
+              Learning opportunity: Enhance coding skills, learn new technologies, and solve real-world problems.
+              </p>
+              <div class="d-flex align-items-center mb-3">
+                <img
+                  class="me-sm-4 me-2"
+                  src="assets/img/manager/tick.png"
+                  width="35"
+                  alt="tick"
+                />
+                <p class="fw-medium mb-0 text-secondary">
+                Networking: Connect with developers, designers, and tech enthusiasts.
+                </p>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <img
+                  class="me-sm-4 me-2"
+                  src="assets/img/manager/tick.png"
+                  width="35"
+                  alt="tick"
+                />
+                <p class="fw-medium mb-0 text-secondary">
+                Recognition and prizes: Showcase skills, gain visibility, and win rewards.
+                </p>
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <img
+                  class="me-sm-4 me-2"
+                  src="assets/img/manager/tick.png"
+                  width="35"
+                  alt="tick"
+                />
+                <p class="fw-medium mb-0 text-secondary">
+                Portfolio enhancement: Build a strong project portfolio for future opportunities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+     
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pb-2 pb-lg-5">
+        <div class="container">
+          <div class="row border-top border-top-secondary pt-7">
+            <div
+              class="col-lg-3 col-md-6 mb-4 mb-md-6 mb-lg-0 mb-sm-2 order-1 order-md-1 order-lg-1"
+            >
+              <img class="mb-4" src="assets/img/logo.svg" width="184" alt="" />
+            </div>
+            <div
+              class="col-lg-3 col-md-6 mb-4 mb-lg-0 order-3 order-md-3 order-lg-2"
+            >
+              <p class="fs-2 mb-lg-4">Quick Links</p>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >About us</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >Blog</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >Contact</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >FAQ</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div
+              class="col-lg-3 col-md-6 mb-4 mb-lg-0 order-4 order-md-4 order-lg-3"
+            >
+              <p class="fs-2 mb-lg-4">Legal stuff</p>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >Disclaimer</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >Financing</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a
+                    class="link-900 text-secondary text-decoration-none"
+                    href="#!"
+                    >Terms of Service</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div
+              class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0 order-2 order-md-2 order-lg-4"
+            >
+              <p class="fs-2 mb-lg-4">
+                knowing you're always on the best energy deal.
+              </p>
+              <form class="mb-3">
+                <input
+                  class="form-control"
+                  type="email"
+                  placeholder="Enter your phone Number"
+                  aria-label="phone"
+                />
+              </form>
+              <button class="btn btn-warning fw-medium py-1">
+                Sign up Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="text-center py-0">
+        <div class="container">
+          <div class="container border-top py-3">
+            <div class="row justify-content-between">
+              <div class="col-12 col-md-auto mb-1 mb-md-0">
+                <p class="mb-0">&copy; 2022 Your Company Inc</p>
+              </div>
+              <div class="col-12 col-md-auto">
+                <p class="mb-0">
+                  Made with<span class="fas fa-heart mx-1 text-danger"> </span
+                  >by
+                  <a
+                    class="text-decoration-none ms-1"
+                    href="https://themewagon.com/"
+                    target="_blank"
+                    >ThemeWagon</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yakin ingin keluar?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Klik tombol "Logout" untuk keluar</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="index.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <div
+      class="modal fade"
+      id="popupVideo"
+      tabindex="-1"
+      aria-labelledby="popupVideo"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <iframe
+            class="rounded"
+            style="width: 100%; height: 500px"
+            src="https://www.youtube.com/embed/_lhdhL4UDIo"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
